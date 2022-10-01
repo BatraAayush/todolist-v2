@@ -56,6 +56,10 @@ app.get("/", async function (req, res) {
   });
 });
 
+app.get("/about", function(req, res){
+  res.render("about");
+});
+
 //express route parameters for different lists
 app.get("/:customListName", async (req, res) => {
   //to show same list for case sensitive lists eg home and Home both will show Home.
@@ -122,9 +126,7 @@ app.post("/delete", async function (req, res) {
   }
 });
 
-app.get("/about", function(req, res){
-  res.render("about");
-});
+
 
 app.listen(3000, function () {
   console.log("Server started on port 3000");

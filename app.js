@@ -12,7 +12,7 @@ app.use(express.static("public"));
 //connecting to mongoDB through mongoose
 main().catch((err) => console.log(err));
 async function main() {
-  await mongoose.connect("mongodb://localhost:27017/todolistDB");
+  await mongoose.connect("mongodb+srv://aayushBatra:Test123@cluster0.o5fdz8d.mongodb.net/todolistDB");
 }
 
 //creating models
@@ -127,7 +127,10 @@ app.post("/delete", async function (req, res) {
 });
 
 
-
-app.listen(3000, function () {
-  console.log("Server started on port 3000");
+let port = process.env.PORT;
+if(port == null || port == "") {
+  port = 3000;
+}
+app.listen(port, function () {
+  console.log("Server started successfully.");
 });
